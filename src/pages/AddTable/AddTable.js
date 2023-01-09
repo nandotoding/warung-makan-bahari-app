@@ -20,7 +20,6 @@ const AddTable = () => {
         const payload = new FormData();
         payload.append('number', getter.number);
         payload.append('status', getter.status);
-        // fetchMutation(payload);
     };
 
     return (

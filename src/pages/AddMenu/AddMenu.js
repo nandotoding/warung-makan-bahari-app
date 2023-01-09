@@ -21,7 +21,6 @@ const AddMenu = () => {
         const payload = new FormData();
         payload.append('name', getter.name);
         payload.append('price', getter.price);
-        // fetchMutation(payload);
     };
 
     return (
