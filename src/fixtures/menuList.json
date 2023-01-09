@@ -1,0 +1,38 @@
+{
+  "data": [
+    {
+      "menuId": "1",
+      "name": "Nasi Goreng",
+      "price": "10000"
+    },
+    {
+      "menuId": "2",
+      "name": "Ayam Bakar",
+      "price": "15000"
+    },
+    {
+      "menuId": "3",
+      "name": "Ayam Goreng",
+      "price": "13000"
+    },
+    {
+      "menuId": "4",
+      "name": "Soto Ayam",
+      "price": "10000"
+    },
+    {
+      "menuId": "5",
+      "name": "Nasi Padang",
+      "price": "15000"
+    },
+    {
+      "menuId": "6",
+      "name": "Ikan Bakar",
+      "price": "10000"
+    }
+  ],
+  "count": 7,
+  "totalPage": 2,
+  "page": 1,
+  "size": 5
+}

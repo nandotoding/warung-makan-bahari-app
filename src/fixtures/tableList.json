@@ -1,0 +1,34 @@
+{
+  "data": [
+    {
+      "tableId": "1",
+      "number": "Table 1",
+      "status": "Unavailable"
+    },
+    {
+      "tableId": "2",
+      "number": "Table 2",
+      "status": "Available"
+    },{
+      "tableId": "3",
+      "number": "Table 3",
+      "status": "Available"
+    },{
+      "tableId": "4",
+      "number": "Table 4",
+      "status": "Unavailable"
+    },{
+      "tableId": "5",
+      "number": "Table 5",
+      "status": "Unavailable"
+    },{
+      "tableId": "6",
+      "number": "Table 6",
+      "status": "Available"
+    }
+  ],
+  "count": 7,
+  "totalPage": 2,
+  "page": 1,
+  "size": 5
+}
