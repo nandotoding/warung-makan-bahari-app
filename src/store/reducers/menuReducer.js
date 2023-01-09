@@ -1,8 +1,11 @@
 import menuList from "../../fixtures/menuList.json"
 import constants from "../../constants/constants";
 
+const {count, totalPage, page, size} = menuList;
+
 const initialState = {
-    menuList: [...menuList.data]
+    menuList: [...menuList.data],
+    pagination: {count, totalPage, page, size}
 };
 
 const menuReducer = (state = initialState, action) => {

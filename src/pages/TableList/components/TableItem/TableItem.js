@@ -1,11 +1,12 @@
 import {StyledListItem} from "./styles";
 import {Button, ButtonGroup, Col, Row} from "react-bootstrap";
 import {memo} from "react";
+import constants from "../../../../constants/constants";
 
 const TableItem = ({data, onDelete}) => {
     let statusStyle = {};
 
-    if (data.status === "Available") {
+    if (data.status === constants.TABLE_STATUS.AVAILABLE) {
         statusStyle = {color: 'green'}
     } else {
         statusStyle = {color: 'red'}

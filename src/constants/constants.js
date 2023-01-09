@@ -18,6 +18,10 @@ const constants = {
 
         TABLE: "/table",
         ADD_TABLE: "/table/add"
+    },
+    TABLE_STATUS: {
+        AVAILABLE: "Available",
+        UNAVAILABLE: "Unavailable"
     }
 };
 
