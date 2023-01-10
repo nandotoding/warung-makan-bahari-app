@@ -5,6 +5,7 @@ import NavBar from "../../components/Navbar/NavBar";
 
 const ProtectedRoutes = () => {
     const {token} = useToken();
+
     if (!token) {
         return <Navigate to={constants.ROUTES.LOGIN} replace />
     }
