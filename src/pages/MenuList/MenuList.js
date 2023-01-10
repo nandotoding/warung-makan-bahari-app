@@ -4,6 +4,7 @@ import MenuItem from "./components/MenuItem/MenuItem";
 import {StyledListGroup} from "./styles";
 import withPaginationList from "../../hoc/withPaginationList";
 import constants from "../../constants/constants";
+import {getMenus} from "../../service/menuApi";
 
 const MenuList = ({data}) => {
     const dispatch = useDispatch();
@@ -30,5 +31,6 @@ const MenuList = ({data}) => {
 
 export default withPaginationList(MenuList, {
     label: "Menu",
-    routeToAdd: constants.ROUTES.ADD_MENU
+    routeToAdd: constants.ROUTES.ADD_MENU,
+    query: getMenus
 });

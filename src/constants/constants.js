@@ -13,11 +13,11 @@ const constants = {
         LOGIN: "/auth/login",
         REGISTER: "/auth/register",
 
-        MENU: "/menu",
-        ADD_MENU: "/menu/add",
+        MENU: "/menus",
+        ADD_MENU: "/menus/add",
 
-        TABLE: "/table",
-        ADD_TABLE: "/table/add"
+        TABLE: "/tables",
+        ADD_TABLE: "/tables/add"
     },
     TABLE_STATUS: {
         AVAILABLE: "Available",

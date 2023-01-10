@@ -6,6 +6,7 @@ import FormText from "../../components/FormText/FormText";
 import {onChangeText} from "../../utils/EventHandlers";
 import StyledContainer from "../../components/StyledContainer/StyledContainer";
 import constants from "../../constants/constants";
+import {login} from "../../service/loginApi";
 
 function Login() {
     const [email, setEmail] = useState("");
@@ -20,15 +21,14 @@ function Login() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        const emailInDb = "admin@example.com";
-        const passwordInDb = "12345678"
+        const getToken = async () => await login({email: email, password: password});
 
-        if (email === emailInDb && password === passwordInDb) {
-            setToken({token: "abdcxyz123"});
+        getToken().then(response => {
+            setToken(response.data.data);
             navigate(constants.ROUTES.DASHBOARD);
-        } else {
+        }).catch(response => {
             setCorrectUsernamePass(false);
-        }
+        });
     }
 
     const validateEmail = () => {

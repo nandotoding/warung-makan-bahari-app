@@ -4,6 +4,7 @@ import TableItem from "./components/TableItem/TableItem";
 import withPaginationList from "../../hoc/withPaginationList";
 import constants from "../../constants/constants";
 import {deleteTable} from "../../store/actions/tableAction";
+import {getTables} from "../../service/tableApi";
 
 const TableList = ({data}) => {
     const dispatch = useDispatch();
@@ -32,5 +33,6 @@ const TableList = ({data}) => {
 
 export default withPaginationList(TableList, {
     label: "Table",
-    routeToAdd: constants.ROUTES.ADD_TABLE
+    routeToAdd: constants.ROUTES.ADD_TABLE,
+    query: getTables
 });

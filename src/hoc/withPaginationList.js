@@ -4,18 +4,25 @@ import StyledContainer from "../components/StyledContainer/StyledContainer";
 import {Button} from "react-bootstrap";
 import Pagination from "../components/Pagination/Pagination";
 import EmptyState from "../components/EmptyState/EmptyState";
-import menuList from "../fixtures/menuList.json"
-import tableList from "../fixtures/tableList.json"
+import useFetchQuery from "../hooks/useFetchQuery";
 
 export default (ListComponent, opts) => {
     return (props) => {
         const navigate = useNavigate();
-        const { label, routeToAdd } = opts;
+        const { label, routeToAdd, query } = opts;
         const [currentPage, setCurrentPage] = useState(1);
-        let {data, totalPage} = menuList;
+        const {data, loading, error} = useFetchQuery(query, currentPage);
 
-        if (label === "Table") {
-            ({data, totalPage} = tableList)
+        if (loading) return <h2>Loading...</h2>
+        if (error) return <h2>ERROR...</h2>
+
+        if (loading || error) {
+            return (
+                <StyledContainer>
+                    {loading && <h2>Loading...</h2>}
+                    {error && <h2>ERROR...</h2>}
+                </StyledContainer>
+            );
         }
 
         return (
@@ -27,7 +34,7 @@ export default (ListComponent, opts) => {
                     ): <EmptyState text={`${label} is Empty...`} />}
                 </StyledContainer>
                 <Pagination
-                    totalPage={totalPage}
+                    totalPage={data?.totalPage}
                     onChangeCurrentPage={setCurrentPage}
                     currentPage={currentPage}
                 />
