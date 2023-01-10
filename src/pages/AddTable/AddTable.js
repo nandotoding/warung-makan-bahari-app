@@ -6,6 +6,8 @@ import {Button, ButtonGroup, Form} from "react-bootstrap";
 import FormInput from "../../components/FormInput/FormInput";
 import constants from "../../constants/constants";
 import FormSelect from "../../components/FormSelect/FormSelect";
+import useFetchMutation from "../../hooks/useFetchMutation";
+import {addTables} from "../../service/tableApi";
 
 const FORM_LIST = [
     { id: "number", label: "Table Number", type: "text", placeholder: "Enter table number" }
@@ -15,16 +17,18 @@ const AddTable = () => {
     const { getter, setter } = useAddTable();
     const navigate = useNavigate();
     const statusData = [constants.TABLE_STATUS.AVAILABLE, constants.TABLE_STATUS.UNAVAILABLE];
+    const {fetchMutation, loading} = useFetchMutation(addTables, () => navigate(constants.ROUTES.TABLE));
 
     const submitHandler = () => {
         const payload = new FormData();
-        payload.append('number', getter.number);
-        payload.append('status', getter.status);
+        payload.append('tableNumber', getter.number);
+        payload.append('tableStatus', getter.status);
+        fetchMutation(payload);
     };
 
     return (
         <StyledContainer>
-            <StyledTitle>Add Menu</StyledTitle>
+            <StyledTitle>Add Table</StyledTitle>
             <Form>
                 { FORM_LIST.map(item => (
                     <FormInput

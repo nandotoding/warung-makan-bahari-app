@@ -6,7 +6,7 @@ import constants from "../../../../constants/constants";
 const TableItem = ({data, onDelete}) => {
     let statusStyle = {};
 
-    if (data.status === constants.TABLE_STATUS.AVAILABLE) {
+    if (data.tableStatus === constants.TABLE_STATUS.AVAILABLE) {
         statusStyle = {color: 'green'}
     } else {
         statusStyle = {color: 'red'}
@@ -16,8 +16,8 @@ const TableItem = ({data, onDelete}) => {
         <StyledListItem action>
             <Row>
                 <Col className="col-8">
-                    <h3 className="lead">{data?.number}</h3>
-                    <p style={statusStyle}>{data?.status}</p>
+                    <h3 className="lead">{data?.tableNumber}</h3>
+                    <p style={statusStyle}>{data?.tableStatus}</p>
                 </Col>
                 <ButtonGroup className="col-4">
                     <Button variant="danger" onClick={onDelete}>Delete</Button>

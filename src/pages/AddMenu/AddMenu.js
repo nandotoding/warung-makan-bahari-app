@@ -5,6 +5,8 @@ import {StyledTitle} from "./styles";
 import {Button, ButtonGroup, Form} from "react-bootstrap";
 import FormInput from "../../components/FormInput/FormInput";
 import constants from "../../constants/constants";
+import useFetchMutation from "../../hooks/useFetchMutation";
+import {addMenu} from "../../service/menuApi";
 
 const FORM_LIST = [
     { id: "name", label: "Name", type: "text", placeholder: "Enter menu name" },
@@ -14,13 +16,13 @@ const FORM_LIST = [
 const AddMenu = () => {
     const { getter, setter } = useAddMenu();
     const navigate = useNavigate();
-    // const {fetchMutation, loading} = useFetchMutation(addCourse, () => navigate(constants.ROUTES.COURSE));
-    // const {data: courseTypeData} = useFetchQuery(getCourseTypes);
+    const {fetchMutation, loading} = useFetchMutation(addMenu, () => navigate(constants.ROUTES.MENU));
 
     const submitHandler = () => {
         const payload = new FormData();
         payload.append('name', getter.name);
         payload.append('price', getter.price);
+        fetchMutation(payload);
     };
 
     return (

@@ -10,8 +10,7 @@ const useFetchQuery = (query, params) => {
         try {
             setLoading(true);
             const response = await query(params);
-            setData(response.data);
-            console.log('DATA', data);
+            setData(response?.data?.data);
         } catch (e) {
             setError(true);
         } finally {

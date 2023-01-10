@@ -16,8 +16,6 @@ const TableList = ({data}) => {
         }
     };
 
-    console.log('DATA', data);
-
     return (
         <StyledListGroup>
             {data?.map((item, index) => (
